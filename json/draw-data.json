@@ -1,0 +1,259 @@
+{
+	"bottles":
+	{
+		"set":
+		[
+			{ "color":"white" , "color_hex":"#ffffff" , "img_url":"images/bottles/bottle-white.png" },
+			{ "color":"blue" , "color_hex":"#1d7fc3" , "img_url":"images/bottles/bottle-blue.png" },
+			{ "color":"green" , "color_hex":"#2bcec8" , "img_url":"images/bottles/bottle-green.png" },
+			{ "color":"pink" , "color_hex":"#e86dde" , "img_url":"images/bottles/bottle-pink.png" },
+			{ "color":"purple" , "color_hex":"#7223d4" , "img_url":"images/bottles/bottle-purple.png" }
+		]
+	},
+
+	"caps":
+	{
+		"set":
+		[
+			{ "color":"white" , "colors":[ "#fff" , "#fff" ] , "img_url":"images/caps/white.png" },
+			{ "color":"blue" , "colors":[ "#a4d7fa" , "#a4d7fa" ] , "img_url":"images/caps/blue.png" },
+			{ "color":"green" , "colors":[ "#79c943" , "#79c943" ] , "img_url":"images/caps/green.png" },
+			{ "color":"pink" , "colors":[ "#fd8fb8" , "#fd8fb8" ] , "img_url":"images/caps/pink.png" },
+			{ "color":"orange" , "colors":[ "#ff9727" , "#ff9727" ] , "img_url":"images/caps/orange.png" },
+			{ "color":"white-blue" , "colors":[ "#fff" , "#a4d7fa" ] , "img_url":"images/caps/white-blue.png" },
+			{ "color":"white-green" , "colors":[ "#fff" , "#79c943" ] , "img_url":"images/caps/white-green.png" },
+			{ "color":"white-pink" , "colors":[ "#fff" , "#fd8fb8" ] , "img_url":"images/caps/white-pink.png" },
+			{ "color":"orange-white" , "colors":[ "#ff9727" , "#fff" ] , "img_url":"images/caps/orange-white.png" },
+			{ "color":"white-orange" , "colors":[ "#fff" , "#ff9727" ] , "img_url":"images/caps/white-orange.png" }
+		]
+	},
+
+	"icons":
+	[
+		{
+			"name":"ים",
+			"folder":"sea",
+			"set":
+			[
+				{ "file_prfx":"anchor" },
+				{ "file_prfx":"crab" },
+				{ "file_prfx":"crown" },
+				{ "file_prfx":"cut" },
+				{ "file_prfx":"dot" },
+				{ "file_prfx":"dotb" },
+				{ "file_prfx":"dotc" },
+				{ "file_prfx":"fish" },
+				{ "file_prfx":"fishb" },
+				{ "file_prfx":"fishc" },
+				{ "file_prfx":"fishd" },
+				{ "file_prfx":"fishe" },
+				{ "file_prfx":"fishf" },
+				{ "file_prfx":"fishg" },
+				{ "file_prfx":"fishh" },
+				{ "file_prfx":"flower" },
+				{ "file_prfx":"flowerb" },
+				{ "file_prfx":"heart" },
+				{ "file_prfx":"music" },
+				{ "file_prfx":"octopus" },
+				{ "file_prfx":"octopusb" },
+				{ "file_prfx":"octopusc" },
+				{ "file_prfx":"octopusd" },
+				{ "file_prfx":"oyster" },
+				{ "file_prfx":"shell" },
+				{ "file_prfx":"shellb" },
+				{ "file_prfx":"shellc" },
+				{ "file_prfx":"shelld" },
+				{ "file_prfx":"shelle" },
+				{ "file_prfx":"star" },
+				{ "file_prfx":"starb" },
+				{ "file_prfx":"starc" },
+				{ "file_prfx":"starface" },
+				{ "file_prfx":"swheel" },
+				{ "file_prfx":"turtle" },
+				{ "file_prfx":"turtleb" },
+				{ "file_prfx":"turtlec" },
+				{ "file_prfx":"turtled" },
+				{ "file_prfx":"whale" },
+				{ "file_prfx":"whaleb" },
+				{ "file_prfx":"wheel" },
+				{ "file_prfx":"wheel1" }
+			]
+		},
+		{
+			"name":"ג'ונגל",
+			"folder":"jungle",
+			"set":
+			[
+				{ "file_prfx":"ale" },
+				{ "file_prfx":"banana" },
+				{ "file_prfx":"branch" },
+				{ "file_prfx":"branch1" },
+				{ "file_prfx":"butterfly" },
+				{ "file_prfx":"butterfly2" },
+				{ "file_prfx":"butterfly3" },
+				{ "file_prfx":"cloud" },
+				{ "file_prfx":"crown1" },
+				{ "file_prfx":"elephant" },
+				{ "file_prfx":"flower1" },
+				{ "file_prfx":"flowers3" },
+				{ "file_prfx":"garden" },
+				{ "file_prfx":"hipo1" },
+				{ "file_prfx":"hipo2" },
+				{ "file_prfx":"hipo3" },
+				{ "file_prfx":"jiraff" },
+				{ "file_prfx":"jiraff2" },
+				{ "file_prfx":"jiraff3" },
+				{ "file_prfx":"jiraff4" },
+				{ "file_prfx":"leaf1" },
+				{ "file_prfx":"leaf3" },
+				{ "file_prfx":"lev" },
+				{ "file_prfx":"monkey" },
+				{ "file_prfx":"monkey1" },
+				{ "file_prfx":"monkey2" },
+				{ "file_prfx":"monkey4" },
+				{ "file_prfx":"monkey5" },
+				{ "file_prfx":"monkey6" },
+				{ "file_prfx":"moon" },
+				{ "file_prfx":"owl" },
+				{ "file_prfx":"owls" },
+				{ "file_prfx":"parrot" },
+				{ "file_prfx":"parrot1" },
+				{ "file_prfx":"parrot2" },
+				{ "file_prfx":"parrot3" },
+				{ "file_prfx":"parrot4" },
+				{ "file_prfx":"star" },
+				{ "file_prfx":"star3" },
+				{ "file_prfx":"tiger" },
+				{ "file_prfx":"tiger2" },
+				{ "file_prfx":"tiger3" },
+				{ "file_prfx":"tiger4" },
+				{ "file_prfx":"water" },
+				{ "file_prfx":"water1" },
+				{ "file_prfx":"water2" }
+			]
+		},
+		{
+			"name":"פארק",
+			"folder":"park",
+			"set":
+			[
+				{ "file_prfx":"ale" },
+				{ "file_prfx":"alim" },
+				{ "file_prfx":"alim2" },
+				{ "file_prfx":"baloot" },
+				{ "file_prfx":"bee" },
+				{ "file_prfx":"bee2" },
+				{ "file_prfx":"bird" },
+				{ "file_prfx":"butterfly" },
+				{ "file_prfx":"carrot" },
+				{ "file_prfx":"cloud" },
+				{ "file_prfx":"crown" },
+				{ "file_prfx":"dovecote" },
+				{ "file_prfx":"dovecote2" },
+				{ "file_prfx":"dovecote3" },
+				{ "file_prfx":"dovecote4" },
+				{ "file_prfx":"drops" },
+				{ "file_prfx":"flower1" },
+				{ "file_prfx":"flower4" },
+				{ "file_prfx":"flower5" },
+				{ "file_prfx":"flower6" },
+				{ "file_prfx":"flower7" },
+				{ "file_prfx":"flower8" },
+				{ "file_prfx":"flower9" },
+				{ "file_prfx":"flower10" },
+				{ "file_prfx":"flower11" },
+				{ "file_prfx":"flowers" },
+				{ "file_prfx":"flowers2" },
+				{ "file_prfx":"flowers3" },
+				{ "file_prfx":"fly" },
+				{ "file_prfx":"fly2" },
+				{ "file_prfx":"frog" },
+				{ "file_prfx":"frog2" },
+				{ "file_prfx":"funnel" },
+				{ "file_prfx":"heart" },
+				{ "file_prfx":"hive" },
+				{ "file_prfx":"hive2" },
+				{ "file_prfx":"kitten" },
+				{ "file_prfx":"leaf" },
+				{ "file_prfx":"music" },
+				{ "file_prfx":"rabbit" },
+				{ "file_prfx":"rabbit2" },
+				{ "file_prfx":"squirrel" },
+				{ "file_prfx":"stalk" },
+				{ "file_prfx":"star" },
+				{ "file_prfx":"sunflower" }
+			]
+		},
+		{
+			"name":"אי בודד",
+			"folder":"island",
+			"set":
+			[
+				{ "file_prfx":"ananas" },
+				{ "file_prfx":"ball" },
+				{ "file_prfx":"carrot" },
+				{ "file_prfx":"cloud" },
+				{ "file_prfx":"crab" },
+				{ "file_prfx":"crown" },
+				{ "file_prfx":"dolfin1" },
+				{ "file_prfx":"dolfin2" },
+				{ "file_prfx":"dolfin3" },
+				{ "file_prfx":"dolfin4" },
+				{ "file_prfx":"dolfin5" },
+				{ "file_prfx":"dot" },
+				{ "file_prfx":"drop" },
+				{ "file_prfx":"drop2" },
+				{ "file_prfx":"fing3" },
+				{ "file_prfx":"fish1" },
+				{ "file_prfx":"fish2" },
+				{ "file_prfx":"flamingi" },
+				{ "file_prfx":"flamingo2" },
+				{ "file_prfx":"flower" },
+				{ "file_prfx":"flower2" },
+				{ "file_prfx":"flower3" },
+				{ "file_prfx":"flower4" },
+				{ "file_prfx":"flower5" },
+				{ "file_prfx":"flower6" },
+				{ "file_prfx":"flower7" },
+				{ "file_prfx":"fruit" },
+				{ "file_prfx":"fruit2" },
+				{ "file_prfx":"kiwi" },
+				{ "file_prfx":"leaf" },
+				{ "file_prfx":"leaf2" },
+				{ "file_prfx":"leaves" },
+				{ "file_prfx":"lemon" },
+				{ "file_prfx":"lev" },
+				{ "file_prfx":"music" },
+				{ "file_prfx":"ping2" },
+				{ "file_prfx":"ping3" },
+				{ "file_prfx":"ping4" },
+				{ "file_prfx":"ping5" },
+				{ "file_prfx":"pingi" },
+				{ "file_prfx":"star" },
+				{ "file_prfx":"wmelon" },
+				{ "file_prfx":"wmelon2" }
+			]
+		},
+		{
+			"name":"רקע",
+			"folder":"backgrounds",
+			"set":
+			[
+				{ "file_prfx":"null" },
+				{ "file_prfx":"background-1" },
+				{ "file_prfx":"background-2" },
+				{ "file_prfx":"background-3" },
+				{ "file_prfx":"background-4" }
+			]
+		}
+
+	],
+
+	"templates":
+	[
+		{ "key_img_url":"images/templates/template-image-1.jpg" },
+		{ "key_img_url":"images/templates/template-image-2.jpg" },
+		{ "key_img_url":"images/templates/template-image-3.jpg" }
+	]
+
+}

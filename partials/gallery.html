@@ -1,0 +1,65 @@
+<div id="gallery">
+
+  <div class="bg-holder"></div>
+
+  <div class="holder">
+
+    <h1>גלרית הבקבוקים</h1>
+
+    <div class="loading-process" ng-show="loading">
+      <div class="icon">
+        <span class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></span>
+        <div class="txt">{{ loading_msg }}</div>
+      </div>
+    </div>
+
+    <div class="gallery-images" ng-show="!loading">
+
+      <div class="gallery-thumb" ng-repeat="image in galleryLoadedObj" ng-click="thumbClick( image, index )" ng-init="index = $index" >
+
+        <div class="img-holder">
+          <img ng-src="{{ image.imgFileName }}" alt="" />
+        </div>
+
+        <div class="img-info">
+          <span class="child-name">הבקבוק של {{ image.childName }}</span>
+          <span class="parent-name">עיצוב: {{ image.fullName }}</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <button class="purple-btn load-more" ng-click="loadMoreClick()" ng-show=" !noMoreThumbs && !loading " >טען עוד</button>
+
+  </div>
+
+  <div class="gallery-swiper" ng-show="showSwiper" >
+    <div class="cover" ng-click="closeGalleryPop()" ></div>
+    <div class="swiper-holder">
+
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" ng-repeat="image in galleryLoadedObj" >
+
+            <div class="img-holder">
+              <img ng-src="{{ image.imgFileName }}" alt="" />
+            </div>
+
+            <div class="img-info">
+              <span class="child-name">הבקבוק של {{ image.childName }}</span>
+              <span class="parent-name">עיצוב: {{ image.fullName }}</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="close-btn" ng-click="closeGalleryPop()" ><span class="fa fa-times"></span></div>
+      <div class="nav-btn next-btn"><span class="fa fa-angle-left"></span></div>
+      <div class="nav-btn prev-btn"><span class="fa fa-angle-right"></span></div>
+
+    </div>
+  </div>
+
+</div>

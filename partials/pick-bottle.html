@@ -1,0 +1,38 @@
+<div class="stage pick-bottle"  ng-controller="PickBottle">
+
+  <div class="stage-title">
+    <button class="back-btn" ng-click="backBtnClick();" ng-show="!userData.logged_in" ><span class="fa fa-angle-right"></span> חזור</button>
+    <h2>צבע הבקבוק</h2>
+    <h3>יש לבחור את צבע הבקבוק הרצוי</h3>
+  </div>
+
+  <div id="bottle-colors" >
+
+    <div ng-class="{ 'swiper-container' : isMobile }" >
+
+      <div class="color-holder" ng-class="{ 'swiper-wrapper' : isMobile }" >
+
+        <div ng-class="{ 'swiper-slide' : isMobile }" ng-repeat="bottles_swiper in drawData.bottles.swiper_groups" >
+
+          <div class="bottle-color" ng-repeat="bottle in bottles_swiper" >
+            <div class="color-btn {{ bottle.color }}" ng-click="bottleColorClick( bottle );" ng-style="{ backgroundColor : bottle.color_hex }" >
+              <div class="inner"></div>
+              <div class="indicator" ng-show=" bottle.colorPicked "><img class="svg" src="images/icon-v.svg" alt="" /></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="nav-btn next-btn" ng-show=" isMobile "> <span class="fa fa-chevron-left"></span> </div>
+    <div class="nav-btn prev-btn" ng-show=" isMobile "> <span class="fa fa-chevron-right"></span> </div>
+
+  </div>
+
+  <button class="continue-btn purple-btn" ng-click="continueClick();" >המשך <span class="fa fa-angle-left"></span></button>
+
+
+</div>

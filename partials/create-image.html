@@ -1,0 +1,93 @@
+<div class="stage create-image" ng-controller="CreateImage" ng-class="{ 'on-load' : rendering , 'fb-gallery-open' : (facebookGalleryOpen &&  isMobile) }" >
+
+  <div class="create-img-ui" ng-show="!rendering && !(facebookGalleryOpen && isMobile)" >
+
+    <div class="stage-title">
+      <button class="back-btn" ng-click="backBtnClick();" ><span class="fa fa-angle-right"></span> חזור</button>
+      <h2>התמונה של הבייבי שלכם</h2>
+      <h3>רוצים לראות איך הבייבי ייראה עם הבקבוק שעיצבתם?</h3>
+    </div>
+
+    <div class="pic-image-source">
+      <div class="image-src-btn fb-btn" ng-show=" userData.id != undefined && !isOldBrowser " >
+        <button ng-click="openFacebookGallery()" >בחירת תמונה מהפייסבוק</button>
+      </div>
+      <div class="image-src-btn comp-btn" >
+        <button>{{ isMobile ? 'בחירת תמונה מהמכשיר' : 'בחירת תמונה מהמחשב' }}</button>
+        <input id="comp-img" name="comp-img" type="file" onchange="angular.element(this).scope().uploadFileChange(this)" value="" accept="image/*" />
+      </div>
+    </div>
+
+    <div class="pick-template">
+      <div class="template-option template-{{ index + 1 }}" ng-repeat="template in drawData.templates" ng-click="templateClick( template , index );" ng-init="index = $index" ng-class="{ selected : template.selected }">
+        <div class="inner">
+          <div class="template-img-holder">
+            <img class="template-img" src="{{ template.key_img_url }}" alt="" />
+            <img class="bottle-shadow" src="images/bottles/bottle-shadow.png" alt="" />
+            <div class="upload-img" ng-show=" index != 2 && drawData.templates.imgUploaded " >
+              <img class="uploaded" ng-class="{ landscape1 : drawData.templates.upload_img_landscape1 , landscape2 : drawData.templates.upload_img_landscape2 }" src="{{ drawData.templates.upload_img }}" alt="" />
+            </div>
+            <img class="bottle-img" ng-drag-start="repositionImg();" ng-src="{{ drawData.renderedImgSrc }}" alt="" />
+            <img class="avent-logo" src="images/templates/template-avent-logo.jpg" alt="לוגו Avent" />
+          </div>
+          <div class="selected"><img class="svg" src="images/icon-v.svg" /></div>
+        </div>
+      </div>
+    </div>
+
+    <button class="share-btn purple-btn" ng-click="shareClick();" >יצא מושלם! רוצה לשתף! <span class="fa fa-angle-left"></span></button>
+
+    <button class="continue-btn purple-btn" ng-click="continueClick();" ng-show=" userData.id == undefined " >לסיום והשארת פרטים <span class="fa fa-angle-left"></span></button>
+
+    <button class="redraw-btn" ng-click="redrawClick()" >לעיצוב בקבוק נוסף >> </button>
+
+  </div>
+
+  <div class="loading-process" ng-show="rendering && !showShareIOS">
+    <div class="icon">
+      <span class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></span>
+      <div class="txt">{{ loading_msg }}</div>
+    </div>
+  </div>
+
+  <div class="share-facebook-ios" ng-show="showShareIOS">
+
+    <button class="share-btn purple-btn" ng-click="shareIOSClick();" >התמונה מוכנה, שתף <span class="fa fa-angle-left"></span></button>
+
+  </div>
+
+
+  <div id="facebook-gallery" ng-show="facebookGalleryOpen" >
+
+    <div class="cover" ng-click="closeFacebookGalleryClick()" ></div>
+
+    <div id="fb-pop">
+
+      <div class="close-btn" ng-click="closeFacebookGalleryClick()" ><span class="fa fa-times"></span></div>
+
+      <div class="title">
+        <span class="abums-btn" ng-click="backToAlbumsClick()" ng-class="{ 'is-active' : curAlbum != undefined }" >אלבומים</span>
+        <span class="album-title">{{ curAlbum.name }}</span>
+      </div>
+
+      <div class="thumb-holder">
+
+        <div class="albums">
+          <div class="fb-thumb album-thumb" ng-repeat="album in facebookAlbums track by $index" ng-click="albumThumbClick( album )" ng-show="curAlbum == undefined" >
+            <div class="img-holder" style="background-image:url('{{ album.cover_url }}');"></div>
+            <span class="name">{{ album.name }}</span>
+          </div>
+        </div>
+
+        <div class="photos">
+          <div class="fb-thumb photo-thumb" ng-repeat="photo in curAlbum.photos" ng-click="photoThumbClick(photo)" ng-show="curAlbum != undefined" >
+            <div class="img-holder" style="background-image:url('{{ photo.cover_url }}');"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,69 @@
+<div class="stage save-image" ng-controller="SaveImage" ng-class="{ 'on-load' : sendingForm || thanks  }" >
+
+
+  <div class="form" ng-show="!sendingForm && !thanks">
+    <div class="stage-title">
+      <button class="back-btn" ng-click="backBtnClick();" ><span class="fa fa-angle-right"></span> חזור</button>
+      <h2>פרטים למשלוח הפרסים</h2>
+      <h3>אלפי פרסים יחולקו בין המשתתפים</h3>
+    </div>
+
+    <form id="send-image-form" novalidate >
+      <div class="form-field">
+        <input ng-model="userData.name" type="text" name="name" id="name" ng-class="{ 'required' : validation.nameErr }" />
+        <label for="name">שם מלא</label>
+      </div>
+      <div class="form-field">
+        <input ng-model="userData.email" type="email" name="user-mail" id="user-mail" ng-class="{ 'required' : validation.emailErr }" />
+        <label for="user-mail">מייל</label>
+      </div>
+      <div class="form-field">
+        <input ng-model="userData.childName" type="text" name="childName" id="childName" ng-class="{ 'required' : validation.childNameErr }" />
+        <label for="childName">שם הילד</label>
+      </div>
+      <div class="form-field">
+        <input ng-model="userData.city" type="text" name="city" id="city" ng-class="{ 'required' : validation.cityErr }" />
+        <label for="city">עיר מגורים</label>
+      </div>
+      <div class="form-field two-thirds">
+        <input ng-model="userData.street" type="text" name="street" id="street" ng-class="{ 'required' : validation.streetErr }" />
+        <label for="street">רחוב</label>
+      </div>
+      <div class="form-field third last">
+        <input ng-model="userData.zip" type="text" name="zip" id="zip" ng-class="{ 'required' : validation.zipErr }" />
+        <label for="zip">מיקוד</label>
+      </div>
+      <div class="form-field third">
+        <input ng-model="userData.homeNumber" type="text" name="homeNumber" id="homeNumber" ng-class="{ 'required' : validation.homeNumberErr }" />
+        <label for="homeNumber">מס' בית</label>
+      </div>
+      <div class="form-field third">
+        <input ng-model="userData.floor" type="text" name="floor" id="floor" ng-class="{ 'required' : validation.floorErr }" />
+        <label for="floor">קומה</label>
+      </div>
+      <div class="form-field third last">
+        <input ng-model="userData.flatNumber" type="text" name="flatNumber" id="flatNumber" ng-class="{ 'required' : validation.flatNumberErr }" />
+        <label for="flatNumber">מס' דירה</label>
+      </div>
+
+      <button class="send-btn purple-btn" ng-click="submitFormClick();" >המשך <span class="fa fa-angle-left"></span></button>
+
+      <p class="error" ng-bind-html="validation.error"></p>
+
+    </form>
+
+    <button class="skip-form-btn" ng-click="skipFormBtnClick()" >אני לא מעוניינ/ת בקבלת פרס</button>
+
+  </div>
+
+  <div class="loading-process" ng-show="sendingForm">
+    <div class="icon">
+      <span class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></span>
+      <div class="txt">{{ loading_msg }}</div>
+    </div>
+  </div>
+
+
+
+
+</div>

@@ -1,0 +1,112 @@
+<div id="activity">
+
+  <div id="drawing-board" ng-class="{ 'add-icons' : (level2Active && isMobile) }">
+    <div ng-click="homeBtnClick();" class="home-btn"><img class="svg" src="images/icon-home.svg" alt="" /></div>
+
+    <div id="bottle-holder" ng-show="design_bottle" >
+
+      <div class="toolbar toolbar-right" ng-show="editing" >
+        <div class="toolbar-btn-group">
+          <button class="ui-btn rotate-right-btn" ng-click="rotateRight();" title="סובב ימינה"> <span class="fa fa-repeat"></span> </button>
+          <button class="ui-btn rotate-left-btn" ng-click="rotateLeft();" title="סובב שמאלה"> <span class="fa fa-undo"></span> </button>
+        </div>
+        <div class="toolbar-btn-group">
+          <button class="ui-btn zoom-in-btn" ng-click="zoomIn();" title="הגדל"> <span class="fa fa-plus"></span> </button>
+          <button class="ui-btn zoom-out-btn" ng-click="zoomOut();" title="הקטן"> <span class="fa fa-minus"></span> </button>
+        </div>
+      </div>
+
+      <div class="bottle">
+        <img class="sizer" src="images/bottles/sizer.png" alt="" />
+        <img class="bottle-lead" src="{{ bottleImgObj.cap_url }}" alt="" />
+        <img class="bottle-body" src="{{ bottleImgObj.body_url }}" alt="" />
+        <img class="bottle-texture" src="{{ bottleImgObj.texture_url }}" alt="" ng-show=" bottleImgObj.texture_url != '' " />
+        <img class="bottle-shadow" src="images/bottles/bottle-shadow.png" alt="" />
+        <div class="canvas-holder">
+          <canvas id="draw-canvas" width="457" height="705" ng-mousedown="onMouseDown();" ng-mouseup="onMouseUp();"></canvas>
+        </div>
+      </div>
+
+
+      <div class="toolbar toolbar-left" ng-show="editing" >
+        <div class="toolbar-btn-group">
+          <button class="ui-btn change-col-btn" ng-click="iconColorClick()" title="החלף צבע"><div class="col col1"></div><div class="col col2"></div><div class="col col3"></div><div class="col col4"></div></button>
+          <button class="ui-btn erase-btn" ng-click="eraseImg();" title="מחק"> <span class="fa fa-trash"></span> </button>
+        </div>
+        <div class="toolbar-btn-group">
+          <button class="ui-btn send-back-btn" ng-click="sendBack();" title="העבר אייקון לאחור"> <img src="images/icon-layer-down.svg" alt="" /> </button>
+          <button class="ui-btn bring-forward-btn" ng-click="bringForward();" title="העבר אייקון קדימה"> <img src="images/icon-layer-up.svg" alt="" /> </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="create-image" ng-show="create_image" >
+
+      <div id="template-img-holder" class="template-{{ drawData.templates.pickedTemplate.index + 1 }} " >
+
+        <div class="template-img-holder">
+          <img class="template-img" src="{{ drawData.templates.pickedTemplate.key_img_url }}" alt="" />
+          <img class="bottle-shadow" src="images/bottles/bottle-shadow.png" alt="" />
+          <div class="upload-img" ng-show=" index != 2 && drawData.templates.imgUploaded " >
+            <img class="uploaded" ng-class="{ landscape1 : drawData.templates.upload_img_landscape1 , landscape2 : drawData.templates.upload_img_landscape2 }" src="{{ drawData.templates.upload_img }}" alt="" />
+          </div>
+          <img class="bottle-img" ng-src="{{ drawData.renderedImgSrc }}" alt="" />
+          <img class="avent-logo" src="images/templates/template-avent-logo.jpg" alt="לוגו Avent" />
+        </div>
+
+        <div class="move-bottle-ui side-right" ng-show="drawData.templates.pickedTemplate.index == 0" >
+          <div class="toolbar-btn-group">
+            <button class="ui-btn move-up-btn" ng-click="moveBottleUp();" > <span class="fa fa-arrow-up"></span> </button>
+            <button class="ui-btn move-down-btn" ng-click="moveBottleDown();" > <span class="fa fa-arrow-down"></span> </button>
+          </div>
+          <div class="toolbar-btn-group">
+            <button class="ui-btn move-right-btn" ng-click="moveBottleRight();" > <span class="fa fa-arrow-right"></span> </button>
+            <button class="ui-btn move-left-btn" ng-click="moveBottleLeft();" > <span class="fa fa-arrow-left"></span> </button>
+          </div>
+        </div>
+
+        <div class="move-bottle-ui side-left" ng-show="drawData.templates.pickedTemplate.index == 0" >
+          <div class="toolbar-btn-group">
+            <button class="ui-btn rotate-right-btn" ng-click="rotateBottleRight();" > <span class="fa fa-repeat"></span> </button>
+            <button class="ui-btn rotate-left-btn" ng-click="rotateBottleLeft();" > <span class="fa fa-undo"></span> </button>
+          </div>
+          <div class="toolbar-btn-group">
+            <button class="ui-btn zoom-in-btn" ng-click="zoomBottleIn();" > <span class="fa fa-plus"></span> </button>
+            <button class="ui-btn zoom-out-btn" ng-click="zoomBottleOut();" > <span class="fa fa-minus"></span> </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="save-image" ng-show="save_image" >
+      <div id="template-img-holder" >
+        <img class="bottle-img" ng-src="{{ drawData.finalImgSrc }}" alt="" />
+      </div>
+    </div>
+
+    <div id="stage-indicator">
+      <div class="stage-level" ng-class="{ active : level1Active , complete : level1Complete }" >
+        <span class="number" ng-show="!level1Complete" >1</span>
+        <div class="img-holder" ng-show="level1Complete"><img class="svg" src="images/icon-v.svg" alt="" /></div>
+      </div>
+      <div class="stage-level" ng-class="{ active : level2Active , complete : level2Complete }" >
+        <span class="number" ng-show="!level2Complete" >2</span>
+        <div class="img-holder" ng-show="level2Complete"><img class="svg" src="images/icon-v.svg" alt="" /></div>
+      </div>
+      <div class="stage-level" ng-class="{ active : level3Active , complete : level3Complete }" >
+        <span class="number" ng-show="!level3Complete" >3</span>
+        <div class="img-holder" ng-show="level3Complete"><img class="svg" src="images/icon-v.svg" alt="" /></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="activity-stage">
+    <div id="stage-holder" ng-include src="activity_partial"></div>
+    <div class="terms-link">כפוף <a href="./terms.html" target="_blank">לתקנון</a> התחרות</div>
+  </div>
+
+</div>

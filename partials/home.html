@@ -1,0 +1,96 @@
+<div id="homepage">
+
+  <div class="slide slide-1">
+    <div class="content-holder">
+      <div class="content">
+        <h1>הבקבוק האישי שלי</h1>
+        <h3>תחרות עיצוב הבקבוקים הראשונה בישראל החלה! בואו לעצב את הבקבוק המושלם לבייבי שלכם.</h3>
+        <p>תינוק אחד מאושר יזכה בחבילת החלומות של אוונט ועוד אלפי משתתפים יזכו במדבקות שם אישיות לעיצוב הבקבוק.</p>
+        <button class="purple-btn alpha" ng-click="startClick_p1()">קדימה, התחילו לעצב <span class="fa fa-angle-left"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-2" id="bottles" >
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide swiper-slide-1">
+          <div class="slide-content">
+            <img class="slide-img" src="images/homepage/slide2-img1.png" alt="בקבוקים" />
+            <div class="content">
+              <img class="decor decor-1" src="images/homepage/slide2-icons-01.png" alt="" />
+              <img class="decor decor-2" src="images/homepage/slide2-icons-02.png" alt="" />
+              <img class="decor decor-3" src="images/homepage/slide2-icons-03.png" alt="" />
+              <img class="decor decor-4" src="images/homepage/slide2-icons-04.png" alt="" />
+              <h2>בקבוקי Philips Avent</h2>
+              <p>בקבוקי Philips Avent מיוצרים באנגליה כבר מעל 30 שנה תחת בקרה קפדנית על איכות ללא פשרות. כל בקבוקי אוונט בעלי תו תקן של מכון התקנים הישראלי ואינם מכילים ביספינול A.<br>
+                ל-Philips Avent שתי  סדרות בקבוקים איכותיים, להתאמה מושלמת לצרכי התינוק. <b>מהיום תוכלו להעניק לתינוקכם לא רק את הבקבוק האיכותי ביותר, אלא גם בעיצוב שהכי מתאים לו!</b></p>
+                <button class="purple-btn white" ng-click="startClick_slider_bottles()">לעיצוב בקבוק <span class="fa fa-angle-left"></span></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide swiper-slide-2">
+            <div class="slide-content">
+              <img class="slide-img" src="images/homepage/slide2-img2.png" alt="בקבוקים" />
+              <div class="content">
+                <img class="decor decor-1" src="images/homepage/slide2-icons-05.png" alt="" />
+                <img class="decor decor-2" src="images/homepage/slide2-icons-06.png" alt="" />
+                <img class="decor decor-3" src="images/homepage/slide2-icons-07.png" alt="" />
+                <h2>סדרת בקבוקי אוונט נטורל</h2>
+                <p>בקבוקי אוונט נטורל החדשניים עוצבו במיוחד על מנת לדמות את פעולת ההנקה הטבעית מפטמת האם, להקלה על השילוב בין הנקה להאכלה מבקבוק. הפטמה הטבעית של בקבוק נטורל בעלת מבנה עלי כותרת לחוויית יניקה טבעית יותר ולמניעת קריסת הפטמה. הבקבוק כולל מערכת שסתומים מוכחת קלינית להפחתת כאבי גזים.</p>
+                <button class="purple-btn white" ng-click="startClick_slider_natural()">לעיצוב בקבוק <span class="fa fa-angle-left"></span></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide swiper-slide-3">
+            <div class="slide-content">
+              <img class="slide-img" src="images/homepage/slide2-img3.png" alt="בקבוקים" />
+              <div class="content">
+                <img class="decor decor-1" src="images/homepage/slide2-icons-09.png" alt="" />
+                <img class="decor decor-2" src="images/homepage/slide2-icons-08.png" alt="" />
+                <img class="decor decor-3" src="images/homepage/slide2-icons-10.png" alt="" />
+                <h2>סדרת בקבוקי אוונט קלאסי+</h2>
+                <p>הבקבוק הקלאסי של אוונט הינו הבקבוק האהוב והנמכר ביותר כבר מעל 30 שנה בזכות מערכת שסתומים מוכחת קלינית להפחתת כאבי גזים. הסדרה עברה השנה שדרוג משמעותי ומכילה פחות חלקים (ללא טבעת התאמה), כך שקל יותר מתמיד לנקות, לפרק ולהרכיב את הבקבוק כשהבייבי רעב.</p>
+                <button class="purple-btn white" ng-click="startClick_slider_classic()">לעיצוב בקבוק <span class="fa fa-angle-left"></span></button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pagination-holder">
+        <div class="nav-btn prev-btn" > <span class="fa fa-chevron-right"></span> </div>
+        <div class="pagination"></div>
+        <div class="nav-btn next-btn" > <span class="fa fa-chevron-left"></span> </div>
+      </div>
+
+    </div>
+
+    <div class="slide slide-3" id="prize" >
+      <div class="content-holder">
+        <div class="content">
+          <h1>הפרס למקום הראשון</h1>
+          <p>חבילת החלומות של Philips Avent – חבילת מוצרים מפנקת בשווי 3,000 ₪, הכוללת עשרות מוצרי אוונט מתקדמים ושימושיים, ביניהם מאדה בלנדר של אוונט להכנת מזון תינוקות במכשיר אחד, מחמם בקבוקים מעוצב, סטריליזטור חשמלי 3 ב-1, משאבת הנקה אוונט נטורל, מגוון בקבוקי נטורל, כוסות מעבר עם פיה וקש, מוצצים ועוד המון הפתעות.<br>
+לא זכיתם? לא נורא! אלפי משתתפים יזכו בגליון מדבקות שם אישיות עם הדמויות המתוקות של אוונט, כך שתוכלו לעצב לתינוקכם את הבקבוק האישי שלו.</p>
+          <button class="purple-btn alpha" ng-click="startClick_slider_prize()">לעיצוב בקבוק <span class="fa fa-angle-left"></span></button>
+        </div>
+      </div>
+      <img class="products" ng-show="isMobile" src="{{ slide3_products }}" alt="" />
+    </div>
+
+    <div class="slide slide-4">
+      <div class="content-holder">
+        <div class="content">
+          <h1>גלריית הבקבוקים</h1>
+          <p>בואו לראות את גלריית הבקבוקים של Philips Avent</p>
+          <button class="purple-btn white" ng-click="galleryClick_home()">לצפייה בגלריה <span class="fa fa-angle-left"></span></button>
+          <button class="purple-btn alpha" ng-click="startClick_gallery()">לעיצוב בקבוק <span class="fa fa-angle-left"></span></button>
+        </div>
+      </div>
+    </div>
+
+  </div>

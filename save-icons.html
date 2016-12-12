@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+
+
+</head>
+
+<style media="screen">
+  .print{ font-size:30px; background-color:red; padding:30px; }
+  #print-area{
+    position:relative;
+  }
+</style>
+
+<body>
+
+  <img class="icon" src="" />
+
+  <div id="print-area">
+    <canvas id="draw-canvas" width="400" height="400" style="border:1px solid #ccc"></canvas>
+  </div>
+
+  <a href="#" class="button" id="btn-download" download="">Download</a>
+  <a href="#" class="button" id="next-icon">next</a>
+
+</body>
+
+
+
+<script src="js/jquery-2.2.1.min.js"></script>
+<script src="js/fabric.min.js"></script>
+<script src="js/html2canvas.min.js"></script>
+
+<script>
+
+var canvas;
+var icons = [];
+var icon_prfx = '';
+var iconCounter = 0;
+var colCounter = 1;
+var iconName = '';
+var icon_url;
+
+$(document).ready(function(){
+
+  $.getJSON( "json/draw-data.json", function( data ) {
+    icons = data.icons[3];
+    debugger
+    icon_prfx = 'images/icons/' + icons.folder + '/';
+    setIcon();
+  });
+
+  canvas = new fabric.Canvas('draw-canvas');
+
+  $('.icon').click(function(){
+    addImg();
+  });
+
+  $('.print').click(function(){
+
+    html2canvas( $('#print-area') , {
+      width:400,
+      height:400,
+      onrendered: function(canvas) {
+        var img_src = canvas.toDataURL();
+        var img = new Image();
+        img.src = img_src;
+
+        $('body').append(img);
+
+      }
+    });
+
+  });
+
+  var button = document.getElementById('btn-download');
+  button.addEventListener('click', function (e) {
+    canvas.deactivateAll().renderAll();
+    var dataURL = canvas.toDataURL('image/png');
+    button.href = dataURL;
+    setTimeout(function(){
+      setIcon();
+    },200);
+  });
+
+  $('#next-icon').click(function(){
+    setIcon();
+  })
+
+});
+
+function setIcon(){
+  iconName = icons.set[iconCounter].file_prfx + '-' + colCounter;
+  icon_url = icon_prfx + iconName + '.svg';
+  $('#btn-download').attr('download',iconName + '.png');
+
+  $('.icon').one('load', function() {
+    addImg( icon_url );
+
+    if( colCounter == 4 ){
+      colCounter = 1;
+      iconCounter ++;
+    }else{
+      colCounter++;
+    }
+
+  }).attr('src', icon_url);
+
+}
+
+
+function addImg( icon_url ){
+  canvas.clear();
+  var img_url = icon_url + '?r=' + Math.random();
+  fabric.Image.fromURL( img_url , function (oImg) {
+    console.log(oImg, oImg._element);
+    oImg.set({
+      left: 0,
+      top: 0,
+    }).setCoords();
+    oImg.width = 400;
+    oImg.height = 400;
+    canvas.add(oImg);
+
+    canvas.setActiveObject( oImg );
+    canvas.renderAll();
+
+  }, {
+    crossOrigin: ''
+  });
+
+}
+
+
+</script>
+
+
+</html>

@@ -1,0 +1,18 @@
+<div class="stage save-image" ng-controller="Thanks">
+
+  <div class="thanks" >
+    <div class="content-holder">
+      <div class="icon"><img class="svg" src="images/icon-v.svg" alt="" /></div>
+      <h2 ng-show=" !formSkip ">הפרטים נשלחו,<br /> תודה על ההשתתפות!</h2>
+      <h2 ng-show=" formSkip ">תודה על ההשתתפות!</h2>
+      <p>אנו משקיעים בכל בקבוק ובקבוק, העיצוב שלכם יושלם בשעות הקרובות ויצורף לגלריה בכפוף לבדיקה ואישור החברה.</p>
+
+      <!--<button class="share-btn purple-btn" ng-click="shareClick();" ng-show=" userData.id != undefined " > מהמם! חייבת לשתף <span class="fa fa-angle-left"></span></button>-->
+      <button class="gallery-btn purple-btn" ng-click="galleryClick_thanks();" >לצפייה בגלריה <span class="fa fa-angle-left"></span></button>
+      <button class="redraw-btn" ng-click="redrawClick()" >רוצה לעצב עוד בקבוק? קדימה!<button>
+
+    </div>
+  </div>
+
+
+</div>

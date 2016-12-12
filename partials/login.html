@@ -1,0 +1,45 @@
+<div class="stage login"  ng-controller="Login">
+
+  <div class="forms" ng-show="!sendingForm">
+    <div class="login-facebook" ng-show="!loginForm" >
+      <div class="stage-title">
+        <h3>להתחלת עיצוב בקבוק יש לבצע התחברות</h3>
+      </div>
+      <button class="fb-login-btn purple-btn" ng-click="facebookConnectClick();" ><span class="fa fa-facebook-official"></span> התחברות דרך פייסבוק</button>
+      <p class="no-fb-btn" ng-click="noFacebookClick();" >אין לי פייסבוק</p>
+    </div>
+
+    <div class="login-form" ng-show="loginForm" >
+
+      <div class="stage-title">
+        <button class="back-btn" ng-click="backBtnClick();" ><span class="fa fa-angle-right"></span> חזור</button>
+        <h3>אנא מלאו פרטים מזהים</h3>
+      </div>
+
+      <form id="login-form" novalidate >
+        <div class="form-field">
+          <input ng-model="userData.name" type="text" name="fullname" id="name" ng-class="{ 'required' : validation.nameErr }" />
+          <label for="name">שם מלא</label>
+        </div>
+        <div class="form-field">
+          <input ng-model="userData.email" type="email" name="user-mail" id="user-mail" ng-class="{ 'required' : validation.emailErr }" />
+          <label for="user-mail">מייל</label>
+        </div>
+
+        <button class="send-btn purple-btn" ng-click="submitFormClick();" >המשך <span class="fa fa-angle-left"></span></button>
+
+        <p class="error" ng-bind-html="validation.error"></p>
+
+      </form>
+
+    </div>
+  </div>
+
+  <div class="loading-process" ng-show="sendingForm">
+    <div class="icon">
+      <span class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></span>
+      <div class="txt">{{ loading_msg }}</div>
+    </div>
+  </div>
+
+</div>

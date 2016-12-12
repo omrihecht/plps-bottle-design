@@ -1,0 +1,60 @@
+<div class="stage add-icons" ng-controller="AddIcons" ng-class="{ 'on-load' : rendering }">
+
+  <div class="add-icons-ui" ng-show="!rendering">
+    <div class="stage-title">
+      <button class="back-btn" ng-click="backBtnClick();" ><span class="fa fa-angle-right"></span> חזור</button>
+      <h2>עיצוב הבקבוק</h2>
+      <h3>עצבו את הבקבוק המושלם עבור הבייבי שלכם</h3>
+    </div>
+
+    <div id="icons">
+
+      <ul id="icon-set-menu">
+        <li class="icon-set-btn" ng-repeat="icon_set in drawData.icons" ng-click="iconSetBtnClick( $index );" ng-init="icon_set_title.index = $index" ng-class="{ selected : icon_set.selected }" >{{ icon_set.name }}</li>
+      </ul>
+
+      <div class="swiper-holder">
+
+        <div id="icons-set-swiper" class="swiper-container" >
+
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide" ng-repeat="icons_swiper in curIconSet.swiper_groups" >
+
+              <div class="icon-btn" ng-click="iconClick( icon );" ng-repeat="icon in icons_swiper" ng-init="icon.index = $index" >
+                <div class="inner">
+                  <img src="{{ icon.icon_img }}" alt="" />
+                  <div class="icon-use-num" ng-class="{ shown : ( icon.use_number > 0 ) }" >{{ icon.use_number }}</div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div id="swiper-pagination" ng-show="curIconSet.swiper_groups.length > 1" >
+          <div class="prev-btn"> <span class="fa fa-chevron-left"></span> </div>
+          <div class="pagination"></div>
+          <div class="next-btn"> <span class="fa fa-chevron-right"></span> </div>
+        </div>
+
+        <div class="nav-btn next-btn" ng-show=" isMobile "> <span class="fa fa-chevron-left"></span> </div>
+        <div class="nav-btn prev-btn" ng-show=" isMobile "> <span class="fa fa-chevron-right"></span> </div>
+
+      </div>
+
+    </div>
+
+    <button class="continue-btn purple-btn" ng-click="continueClick();" >המשך <span class="fa fa-angle-left"></span></button>
+  </div>
+
+  <div class="loading-process" ng-show="rendering">
+    <div class="icon">
+      <span class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></span>
+      <div class="txt">{{ loading_msg }}</div>
+    </div>
+  </div>
+
+</div>

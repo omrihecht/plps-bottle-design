@@ -1,0 +1,44 @@
+<div class="stage pick-cap"  ng-controller="PickCap">
+
+  <div class="stage-title">
+    <button class="back-btn" ng-click="backBtnClick();" ><span class="fa fa-angle-right"></span> חזור</button>
+    <h2>צבע המכסה</h2>
+    <h3>יש לבחור את צבע המכסה הרצוי</h3>
+  </div>
+
+
+  <div id="cap-colors" >
+
+    <div ng-class="{ 'swiper-container' : isMobile }" >
+
+      <div class="color-holder" ng-class="{ 'swiper-wrapper' : isMobile }" >
+
+        <div ng-class="{ 'swiper-slide' : isMobile }" ng-repeat="cap_swiper in drawData.caps.swiper_groups" >
+
+          <div class="cap-color" ng-repeat="cap in cap_swiper" >
+            <div class="color-btn {{ cap.color }}" ng-click="capColorClick( cap );" >
+              <div class="inner">
+                <div class="top" ng-style="{ backgroundColor : cap.colors[0] }" ></div>
+                <div class="bottom" ng-style="{ backgroundColor : cap.colors[1] }" ></div>
+              </div>
+              <div class="indicator" ng-show=" cap.colorPicked "><img class="svg" src="images/icon-v.svg" alt="" /></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="nav-btn next-btn" ng-show=" isMobile "> <span class="fa fa-chevron-left"></span> </div>
+    <div class="nav-btn prev-btn" ng-show=" isMobile "> <span class="fa fa-chevron-right"></span> </div>
+
+  </div>
+
+
+
+  <button class="continue-btn purple-btn" ng-click="continueClick();" >המשך <span class="fa fa-angle-left"></span></button>
+
+
+</div>

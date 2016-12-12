@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+
+
+</head>
+
+<style media="screen">
+  .print{ font-size:30px; background-color:red; padding:30px; }
+  #print-area{
+    position:relative;
+  }
+</style>
+
+<body>
+
+  <img class="icon" src="images/icons/island/ananas-1.svg" />
+
+  <div class="print" >print</div>
+
+  <div id="print-area">
+    <canvas id="draw-canvas" width="400" height="617" style="border:1px solid #ccc"></canvas>
+  </div>
+
+</body>
+
+
+
+<script src="js/jquery-2.2.1.min.js"></script>
+<script src="js/fabric.min.js"></script>
+<script src="js/html2canvas.min.js"></script>
+
+<script>
+
+var canvas;
+
+$(document).ready(function(){
+  canvas = window.canvas = new fabric.Canvas('draw-canvas');
+
+  $('.icon').click(function(){
+    addImg();
+  });
+
+  $('.print').click(function(){
+
+    var tmp_holder = $('<div id="tmp-holder" ></div>').css({ 'position' : 'relative' , 'width' : '400px' , 'height' : '772px' , 'top' : '0' , 'left' : '0' , 'z-index' : '1000' });
+    var tmp_canvas = $('<canvas id="tmp-canvas" width="400" height="617" ></canvas>').css({ 'position' : 'absolute' , 'display' : 'block' , 'width' : '300px' , 'top' : '256px' , 'left' : '55px' });
+    $(tmp_holder).append( $(tmp_canvas) );
+
+    var work_canvas = document.getElementById('draw-canvas');
+		var img_src = work_canvas.toDataURL();
+		var img = new Image();
+		img.src = img_src;
+		var mask = new Image();
+		mask.src = 'images/bottles/bottle-blue.png?r=' + Math.random();
+		$('#print-area').append( $(tmp_holder) );
+
+		mask.onload = function () {
+			var ctx = document.getElementById('tmp-canvas').getContext('2d');
+			ctx.drawImage(mask, 0, 0, 400, 617);
+			ctx.globalCompositeOperation = 'source-atop';
+			ctx.drawImage(img, 0 , 0, 400, 617);
+
+      html2canvas( $('#print-area') , {
+				onrendered: function(canvas) {
+					var img_src = canvas.toDataURL();
+					var img = new Image();
+					img.src = img_src;
+
+          $('body').append(img);
+
+        }
+      });
+
+    }
+
+  });
+
+});
+
+
+function addImg(){
+  var img_url = 'images/icons/island/ananas-1.svg?r=' + Math.random();
+
+  fabric.loadSVGFromURL( img_url , function(objects, options) {
+    var shape = new fabric.util.groupSVGElements(objects, options);
+    canvas.add(shape.scale(1));
+    shape.set({ left: 200, top: 100, name: "test" }).setCoords();
+    canvas.add(shape);
+  });
+
+  return;
+
+  fabric.Image.fromURL( img_url , function (oImg) {
+    debugger
+    console.log(oImg, oImg._element);
+    oImg.set({
+      left: 100,
+      top: 100,
+    }).setCoords();
+    oImg.width = 200;
+    oImg.height = 200;
+    canvas.add(oImg);
+
+    canvas.setActiveObject( oImg );
+    canvas.renderAll();
+
+  }, {
+    crossOrigin: ''
+  });
+
+}
+
+
+</script>
+
+
+</html>
